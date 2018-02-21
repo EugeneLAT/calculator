@@ -8,41 +8,38 @@ package calculator;
 public class Calculator {
 
     public String calculate(String[] expression) {
-        String a = expression [0]; //
-        String b = expression [2]; //
-        String operation = expression [1]; //
+        String numberFirst = expression[0];
+        String numberSecond = expression[2];
+        String operation = expression[1]; // + - / *
 
-        double DoubleA = Double.parseDouble(a); // double DoubleA = String->Double
-        double DoubleB = Double.parseDouble(b); // double DoubleB = String->Double
-        double result = 0;
+        double doubleNumberFirst = Double.parseDouble(numberFirst); // double DoubleA = String->Double
+        double doubleNumberSecond = Double.parseDouble(numberSecond); // double DoubleB = String->Double
+        double result;
 
-        /*if(operation.equals("+")) {     // operation.equals("+") -> sravnienie s +
-            result = DoubleA + DoubleB;
-        }else if(operation.equals("-")) { // operation.equals("-") -> sravnienie s -
-            result = DoubleA - DoubleB;
-        }else if(operation.equals("*")) { // operation.equals("*") -> sravnienie s *
-            result = DoubleA * DoubleB;
-        }else if(operation.equals("/")) { // operation.equals("/") -> sravnienie s /
-            result = DoubleA / DoubleB;
-        }*/
+        if (expression.length == 3) {
 
-        switch (operation){
-            case "+":
-                result = DoubleA + DoubleB;
-                break;
-            case "-":
-                result = DoubleA - DoubleB;
-                break;
-            case "*":
-                result = DoubleA * DoubleB;
-                break;
-            case "/":
-                result = DoubleA / DoubleB;
-                break;
-            default:
-                return "ERROR";
+            switch (operation) {
+                case "+":
+                    result = doubleNumberFirst + doubleNumberSecond;
+                    break;
+                case "-":
+                    result = doubleNumberFirst - doubleNumberSecond;
+                    break;
+                case "*":
+                    result = doubleNumberFirst * doubleNumberSecond;
+                    break;
+                case "/":
+                    result = doubleNumberFirst / doubleNumberSecond;
+                    break;
+                default:
+                    return "ERROR";
+
+            }
+            return String.valueOf(result); // Double->String
         }
-        return String.valueOf(result); // Double->String
-    }
 
+
+
+        return "0";
+    }
 }
