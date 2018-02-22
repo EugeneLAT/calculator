@@ -12,9 +12,11 @@ public class Calculator {
         String numberSecond = expression[2];
         String operation = expression[1]; // + - / *
 
+
         double doubleNumberFirst = Double.parseDouble(numberFirst); // double DoubleA = String->Double
         double doubleNumberSecond = Double.parseDouble(numberSecond); // double DoubleB = String->Double
         double result;
+
 
         if (expression.length == 3) {
 
@@ -35,11 +37,22 @@ public class Calculator {
                     return "ERROR";
 
             }
+
             return String.valueOf(result); // Double->String
         }
+        if (expression.length > 3) {
+            //System.out.println("Hello");
 
 
+            for (int i = 0; i < expression.length; i += 2) {// тоько числа
+                //numbers[i] = expression[i];
 
+            }
+        }
         return "0";
+
     }
+
+
 }
+
