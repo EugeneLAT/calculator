@@ -5,20 +5,20 @@ package calculator;
  * @version 1.0
  * @since 1.0
  */
+
 public class Calculator {
 
     public String calculate(String[] expression) {
-        String numberFirst = expression[0];
-        String numberSecond = expression[2];
-        String operation = expression[1]; // + - / *
-
-
-        double doubleNumberFirst = Double.parseDouble(numberFirst); // double DoubleA = String->Double
-        double doubleNumberSecond = Double.parseDouble(numberSecond); // double DoubleB = String->Double
-        double result;
-
 
         if (expression.length == 3) {
+            String numberFirst = expression[0];
+            String numberSecond = expression[2];
+            String operation = expression[1];
+
+            double doubleNumberFirst = Double.parseDouble(numberFirst);
+            double doubleNumberSecond = Double.parseDouble(numberSecond);
+            double result;
+
 
             switch (operation) {
                 case "+":
@@ -37,22 +37,104 @@ public class Calculator {
                     return "ERROR";
 
             }
-
             return String.valueOf(result); // Double->String
         }
-        if (expression.length > 3) {
-            //System.out.println("Hello");
+
+        if (expression.length == 5) {
+            String numberFirst = expression[0];
+            String operation = expression[1];
+            String numberSecond = expression[2];
+            String operation2 = expression[3];
+            String numberThird = expression[4];
+
+            double doubleNumberFirst = Double.parseDouble(numberFirst);
+            double doubleNumberSecond = Double.parseDouble(numberSecond);
+            double doubleNumberThird = Double.parseDouble(numberThird);
+            double result;
 
 
-            for (int i = 0; i < expression.length; i += 2) {// тоько числа
-                //numbers[i] = expression[i];
+            switch (operation) {
+                case "+":
+                    switch (operation2) {
+                        case "+":
+                            result = doubleNumberFirst + doubleNumberSecond + doubleNumberThird;
+                            break;
+                        case "-":
+                            result = doubleNumberFirst + doubleNumberSecond - doubleNumberThird;
+                            break;
+                        case "*":
+                            result = doubleNumberFirst + (doubleNumberSecond * doubleNumberThird);
+                            break;
+                        case "/":
+                            result = doubleNumberFirst + (doubleNumberSecond / doubleNumberThird);
+                            break;
+                        default:
+                            return "ERROR";
+                    }
+                    break;
+                case "-":
+                    switch (operation2) {
+                        case "+":
+                            result = doubleNumberFirst - doubleNumberSecond + doubleNumberThird;
+                            break;
+                        case "-":
+                            result = doubleNumberFirst - doubleNumberSecond - doubleNumberThird;
+                            break;
+                        case "*":
+                            result = doubleNumberFirst - (doubleNumberSecond * doubleNumberThird);
+                            break;
+                        case "/":
+                            result = doubleNumberFirst - (doubleNumberSecond / doubleNumberThird);
+                            break;
+                        default:
+                            return "ERROR";
+                    }
+                    break;
+                case "*":
+                    switch (operation2) {
+                        case "+":
+                            result = (doubleNumberFirst * doubleNumberSecond) + doubleNumberThird;
+                            break;
+                        case "-":
+                            result = (doubleNumberFirst * doubleNumberSecond) - doubleNumberThird;
+                            break;
+                        case "*":
+                            result = doubleNumberFirst * doubleNumberSecond * doubleNumberThird;
+                            break;
+                        case "/":
+                            result = doubleNumberFirst * doubleNumberSecond / doubleNumberThird;
+                            break;
+                        default:
+                            return "ERROR";
+                    }
+                    break;
+                case "/":
+                    switch (operation2) {
+                        case "+":
+                            result = (doubleNumberFirst / doubleNumberSecond) + doubleNumberThird;
+                            break;
+                        case "-":
+                            result = (doubleNumberFirst / doubleNumberSecond) - doubleNumberThird;
+                            break;
+                        case "*":
+                            result = doubleNumberFirst / doubleNumberSecond * doubleNumberThird;
+                            break;
+                        case "/":
+                            result = doubleNumberFirst / doubleNumberSecond / doubleNumberThird;
+                            break;
+                        default:
+                            return "ERROR";
+                    }
+                    break;
+                default:
+                    return "ERROR";
 
             }
+            return String.valueOf(result);
         }
-        return "0";
 
+        return "Sorry!";
     }
-
 
 }
 
