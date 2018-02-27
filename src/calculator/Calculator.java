@@ -132,7 +132,22 @@ public class Calculator {
             }
             return String.valueOf(result);
         }
+//(expecsion.lenght + 1)/2
+        if (expression.length == 7){
+            Integer[] allNumbers = new Integer[expression.length]; // allNumbers[size]
+            Character[] allSign; // allSign[sign]
+            int size = (expression.length + 1)/2 ;
+            int [] nums = new int [size];
+            for(int i =0; i < size;i+=1){
 
+                nums[i] = Integer.parseInt(expression[i*2]);
+            }
+
+            for(int i =1; i > expression.length;i+=1){
+                char sign[];
+                sign[i] = expression[i];
+            }
+        }
         return "Sorry!";
     }
 
